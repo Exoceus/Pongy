@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="pong.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/jpg" href="favicon.png">
+    <title>Air Pong</title>
+</head>
+
+<body>
+
+    <section id="preload">
+        <div class="sk-double-bounce">
+            <div class="sk-child sk-double-bounce1"></div>
+            <div class="sk-child sk-double-bounce2"></div>
+        </div>
+        <h2 class="loading-text">Loading</h2>
+    </section>
+
+    <section id="pause-overlay">
+        <h2>Game is Paused</h2>
+    </section>
+
+    <section id="options-overlay">
+        <div id="options-wrapper">
+            <div id="options-close"><i class="fas fa-times"></i></div>
+            <h2 id="options-title">Options</h2>
+            <div id="option-container">
+
+                <p class="option-title">Hand Detection Player</p>
+                <div class="player-select option">
+                    <button id="player-1-track" class="is-selected">Player 1</button>
+                    <button id="player-2-track">Player 2</button>
+                </div>
+                <p class="option-current">Tracking Player: <span id="player-value">Player 1 (Left)</span></p>
+
+                <p class="option-title">Winning Score</p>
+                <div class="slidecontainer option">
+                    <input type="range" min="1" max="100" value="11" class="slider" id="score-slider">
+                    <p class="option-current">Winning Score: <span id="score-value"></span></p>
+                </div>
+
+                <p class="option-title">Framerate</p>
+                <div class="slidecontainer option">
+                    <input type="range" min="10" max="60" value="60" class="slider" id="framerate-slider">
+                    <p class="option-current">Framerate: <span id="framerate-value"></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modal-overlay">
+        <div id="modal">
+            <div id="modal-close"><i class="fas fa-times"></i></div>
+            <h2 id="modal-title"></h2>
+            <p id="modal-text"></p>
+        </div>
+    </section>
+
+    <section id="winner-overlay">
+        <h2>Player <span id="winner-text"></span> has won the game!</h2>
+        <div id="reset-button">
+            <i class="fas fa-redo-alt"></i>Play again
+        </div>
+    </section>
+
+    <nav>
+        <button id="pause"><i class="fas fa-pause"></i></button>
+        <button id="options"><i class="fas fa-sliders-h"></i></button>
+    </nav>
+
+    <div id="player-1"><span id="player-1-points"></span></div>
+    <div id="player-2"><span id="player-2-points"></span></div>
+
+    <div id="webcam-video-wrapper">
+        <video id="webcam-video" muted></video>
+    </div>
+
+    <div id="tracking-canvas-video-wrapper">
+        <canvas id="tracking-canvas"></canvas>
+    </div>
+
+    <div id="dividing-line"></div>
+
+    <canvas id="myCanvas" width="1024" height="720"></canvas>
+
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"> </script>
+    <script src="app.js"></script>
+</body>
+
+</html>
